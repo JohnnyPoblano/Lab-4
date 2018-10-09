@@ -61,7 +61,7 @@ public class Lab4 {
         }
 
         System.out.println();
-
+        System.out.println();
     }
 
     // Display calculations
@@ -73,6 +73,7 @@ public class Lab4 {
         System.out.println("The index of the lowest value is " + sIndex + ". Its value is " + sValue + ".");
         System.out.println("The sum of the array elements is " + sum + ".");
         System.out.println("The average of the array elements is " + avg + ".");
+        System.out.println();
     }
     
     // Populate array with random nums (1-300)
