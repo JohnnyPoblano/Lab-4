@@ -42,6 +42,11 @@ public class Lab4 {
         // Display calculations
         displayCalculations(largestIndex, largestValue, smallestIndex, smallestValue, sum, average);
 
+        // Sort then display array
+        sortArray(myArray);
+        System.out.println("After the sorting:");
+        displayArray(myArray);
+
     } // --------------------------------------------- End Main ----------------//
 
     
@@ -120,6 +125,18 @@ public class Lab4 {
     public static double calculateAverage(int sum) {
         double avg = (double) sum / ARRAY_SIZE;
         return avg;
+    }
+
+    // Insertion sort method
+    public static void sortArray(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int currentElement = array[i];
+            int k;
+            for (k = i - 1; k >= 0 && array[k] > currentElement; k--) {
+                array[k + 1] = array[k];
+            }
+            array[k+1] = currentElement;
+        }
     }
 
 }
