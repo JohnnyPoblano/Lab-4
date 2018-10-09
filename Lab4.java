@@ -24,7 +24,7 @@ public class Lab4 {
         int sum;
         double average;
 
-        // Processing
+        // Create and display array
         populateArray(myArray);
         System.out.println("Before the Sorting:");
         displayArray(myArray);
@@ -47,6 +47,29 @@ public class Lab4 {
         System.out.println("After the sorting:");
         displayArray(myArray);
 
+        //--------------------------2D ARRAY ------------------------------------//
+
+        // Declares 2d array of 10 x 10 ints
+        int[][] my2dArray = new int[ARRAY_SIZE][ARRAY_SIZE];
+
+        // Declare vars
+        int largest2dIndexR;
+        int largest2dIndexC;
+        int largest2dValue;
+        int smallest2dIndex;
+        int smallest2dValue;
+        int sum2d;
+        double average2d;
+
+        // Create and display array
+        populateArray(my2dArray);
+        System.out.println("Before the Sorting:");
+        displayArray(my2dArray);
+
+        // Calculate smallest/largest indexes
+        largest2dIndexR = getLargeIndexR(my2dArray);
+        largest2dIndexC = getLargeIndexC(my2dArray);
+
     } // --------------------------------------------- End Main ----------------//
 
     
@@ -57,14 +80,32 @@ public class Lab4 {
         System.out.println("********************************************************************************");
         
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+            System.out.printf(array[i] + " ");
         }
 
         System.out.println();
         System.out.println();
     }
 
-    // Display calculations
+    //2d displayArray
+    public static void displayArray(int[][] array) {
+        System.out.println("********************************************************************************");
+        System.out.println("Array Elements");
+        System.out.println("********************************************************************************");
+        
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.printf("%-5d", array[i][j]);
+            }
+
+            System.out.println();
+        }
+
+        System.out.println();
+        System.out.println();
+    }
+
+    // Display calculations (Same as 2d version)
     public static void displayCalculations(int lIndex, int lValue, int sIndex, int sValue, int sum, double avg) {
         System.out.println("********************************************************************************");
         System.out.println("Results of Array Processing");
@@ -83,6 +124,15 @@ public class Lab4 {
         }
     }
 
+    // 2d populateArray
+    public static void populateArray(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = IR4.getRandomNumber(RAND_LOW, RAND_HIGH);
+            }
+        }
+    }
+
     // Determine index of largest number in the array
     public static int getLargeIndex(int[] array) {
         
@@ -95,6 +145,42 @@ public class Lab4 {
         }
 
         return largeIndex;
+    }
+
+    // 2d getLargeIndex (row)
+    public static int getLargeIndexR(int[][] array) {
+        
+        int largeIndexR = 0;
+        int largestIndexC = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > array[largeIndexR][largestIndexC]) {
+                    largeIndexR = i;
+                    largestIndexC = j;
+                }
+            }
+        }
+
+        return largeIndexR;
+    }
+
+    // 2d getLargeIndex (column)
+    public static int getLargeIndexC(int[][] array) {
+        
+        int largeIndexR = 0;
+        int largestIndexC = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > array[largeIndexR][largestIndexC]) {
+                    largeIndexR = i;
+                    largestIndexC = j;
+                }
+            }
+        }
+
+        return largestIndexC;
     }
 
     // Determine index of smallest number in the array
