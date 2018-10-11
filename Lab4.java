@@ -56,7 +56,8 @@ public class Lab4 {
         int largest2dIndexR;
         int largest2dIndexC;
         int largest2dValue;
-        int smallest2dIndex;
+        int smallest2dIndexR;
+        int smallest2dIndexC;
         int smallest2dValue;
         int sum2d;
         double average2d;
@@ -66,9 +67,16 @@ public class Lab4 {
         System.out.println("Before the Sorting:");
         displayArray(my2dArray);
 
-        // Calculate smallest/largest indexes
+        // Calculate largest
         largest2dIndexR = getLargeIndexR(my2dArray);
         largest2dIndexC = getLargeIndexC(my2dArray);
+        largest2dValue = my2dArray[largest2dIndexR][largest2dIndexC];
+
+        // Calculate smallest
+        smallest2dIndexR = getSmallIndexR(my2dArray);
+        smallest2dIndexC = getSmallIndexC(my2dArray);
+        smallest2dValue = my2dArray[smallest2dIndexR][smallest2dIndexC];
+
 
     } // --------------------------------------------- End Main ----------------//
 
@@ -150,31 +158,31 @@ public class Lab4 {
     // 2d getLargeIndex (row)
     public static int getLargeIndexR(int[][] array) {
         
-        int largeIndexR = 0;
+        int largestIndexR = 0;
         int largestIndexC = 0;
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                if (array[i][j] > array[largeIndexR][largestIndexC]) {
-                    largeIndexR = i;
+                if (array[i][j] > array[largestIndexR][largestIndexC]) {
+                    largestIndexR = i;
                     largestIndexC = j;
                 }
             }
         }
 
-        return largeIndexR;
+        return largestIndexR;
     }
 
     // 2d getLargeIndex (column)
     public static int getLargeIndexC(int[][] array) {
         
-        int largeIndexR = 0;
+        int largestIndexR = 0;
         int largestIndexC = 0;
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                if (array[i][j] > array[largeIndexR][largestIndexC]) {
-                    largeIndexR = i;
+                if (array[i][j] > array[largestIndexR][largestIndexC]) {
+                    largestIndexR = i;
                     largestIndexC = j;
                 }
             }
@@ -195,6 +203,42 @@ public class Lab4 {
         }
 
         return smallIndex;
+    }
+
+    // 2d getSmallIndex (row)
+    public static int getSmallIndexR(int[][] array) {
+        
+        int smallIndexR = 0;
+        int smallIndexC = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] < array[smallIndexR][smallIndexC]) {
+                    smallIndexR = i;
+                    smallIndexC = j;
+                }
+            }
+        }
+
+        return smallIndexR;
+    }
+
+    // 2d getSmallIndex (column)
+    public static int getSmallIndexC(int[][] array) {
+        
+        int smallIndexR = 0;
+        int smallIndexC = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] < array[smallIndexR][smallIndexC]) {
+                    smallIndexR = i;
+                    smallIndexC = j;
+                }
+            }
+        }
+
+        return smallIndexC;
     }
 
     // Calculate sum of elements
