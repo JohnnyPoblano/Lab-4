@@ -49,6 +49,10 @@ public class Lab4 {
 
         //--------------------------2D ARRAY ------------------------------------//
 
+        System.out.println("********************************************************************************");
+        System.out.println("                                    2D ARRAY");
+        System.out.println("********************************************************************************");
+
         // Declares 2d array of 10 x 10 ints
         int[][] my2dArray = new int[ARRAY_SIZE][ARRAY_SIZE];
 
@@ -76,6 +80,13 @@ public class Lab4 {
         smallest2dIndexR = getSmallIndexR(my2dArray);
         smallest2dIndexC = getSmallIndexC(my2dArray);
         smallest2dValue = my2dArray[smallest2dIndexR][smallest2dIndexC];
+
+        // Sum/Average
+        sum2d = calculateSum(my2dArray);
+        average2d = calculateAverage2d(sum2d);
+
+        // Display Calculations
+        displayCalculations(largest2dIndexR, largest2dIndexC, largest2dValue, smallest2dIndexR, smallest2dIndexC, smallest2dValue, sum2d, average2d);
 
 
     } // --------------------------------------------- End Main ----------------//
@@ -113,7 +124,7 @@ public class Lab4 {
         System.out.println();
     }
 
-    // Display calculations (Same as 2d version)
+    // Display calculations
     public static void displayCalculations(int lIndex, int lValue, int sIndex, int sValue, int sum, double avg) {
         System.out.println("********************************************************************************");
         System.out.println("Results of Array Processing");
@@ -123,6 +134,17 @@ public class Lab4 {
         System.out.println("The sum of the array elements is " + sum + ".");
         System.out.println("The average of the array elements is " + avg + ".");
         System.out.println();
+    }
+
+    // 2d displayCalculations
+    public static void displayCalculations(int lIndexR, int lIndexC, int lValue, int sIndexR, int sIndexC, int sValue, int sum, double avg) {
+        System.out.println("********************************************************************************");
+        System.out.println("Results of Array Processing");
+        System.out.println("********************************************************************************");
+        System.out.println("The index of the highest value is [" + lIndexR + "][" + lIndexC + "]. Its value is " + lValue + ".");
+        System.out.println("The index of the smallest value is [" + sIndexR + "][" + sIndexC + "]. Its value is " + sValue + ".");
+        System.out.println("The sum of the array elements is " + sum + ".");
+        System.out.println("The average of the array elements is " + avg + ".");
     }
     
     // Populate array with random nums (1-300)
@@ -252,9 +274,28 @@ public class Lab4 {
         return sum;
     }
 
+    // 2d calculateSum
+    public static int calculateSum(int[][] array) {
+        int sum = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                sum += array[i][j];
+            }
+        }
+
+        return sum;
+    }
+
     // Calculate average of elements
     public static double calculateAverage(int sum) {
         double avg = (double) sum / ARRAY_SIZE;
+        return avg;
+    }
+
+    // 2d calculate average
+    public static double calculateAverage2d(int sum) {
+        double avg = (double) sum / (ARRAY_SIZE * ARRAY_SIZE);
         return avg;
     }
 
