@@ -7,7 +7,7 @@
 public class Lab4 {
 
     // Array Constants
-    private static final int ARRAY_SIZE = 10;
+    private static final int ARRAY_SIZE = 100;
     private static final int RAND_LOW = 1;
     private static final int RAND_HIGH = 300;
     
@@ -17,9 +17,6 @@ public class Lab4 {
     private static final int ARRAY_2D = 2;
 
     public static void main(String args[]) { // -------- Main -------------------//
-
-        // Display welcome message
-        displayWelcome();
 
         // Get value from user on which array to use
         int userChoice = getArrayChoice("How many dimensions would you like the array to be?\nPlease enter 1, 2, or 0 to quit.");
@@ -155,20 +152,6 @@ public class Lab4 {
         System.out.println("Program ending normally...");
 
     } // --------------------------------------------- End Main ----------------//
-
-    // Welcome message
-    public static void displayWelcome() {
-        System.out.println("----------LAB 4 | ARRAYS----------");
-        System.out.println("----------------------------------");
-        System.out.println("This program will auto populate an");
-        System.out.println("array with random values from " + RAND_LOW);
-        System.out.println("to " + RAND_HIGH + ". It will then calculate");
-        System.out.println("The lowest number, highest number,");
-        System.out.println("sum, and average. After that the");
-        System.out.println("array will be sorted and displayed");
-        System.out.println("----------------------------------");
-        System.out.println();
-    }
 
     // Input validation for array selection
     public static int getArrayChoice(String msg) {
