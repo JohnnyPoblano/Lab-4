@@ -87,6 +87,35 @@ public class Lab4 {
 
         // Display Calculations
         displayCalculations(largest2dIndexR, largest2dIndexC, largest2dValue, smallest2dIndexR, smallest2dIndexC, smallest2dValue, sum2d, average2d);
+        System.out.println();
+
+        // Create 1d array for sorting
+        int[] sortingArray = new int[ARRAY_SIZE * ARRAY_SIZE];
+        
+        // For-loop 2d array into new 1d array
+        int sortingArrayIndex = 0;
+        for (int i = 0; i < my2dArray.length; i++) {
+            for (int j = 0; j < my2dArray[i].length; j++) {
+                sortingArray[sortingArrayIndex] = my2dArray[i][j];
+                sortingArrayIndex++;
+            }
+        }
+
+        // Sort 1d array using insertion sort
+        sortArray(sortingArray);
+
+        // For-loop 1d array back into 2d array
+        int index = 0;
+        for (int i = 0; i < ARRAY_SIZE; i++) {
+            for (int j = 0; j < ARRAY_SIZE; j++) {
+                my2dArray[i][j] = sortingArray[index];
+                index++;
+            }
+        }
+
+        // Display sorted 2d array
+        System.out.println("After the sorting:");
+        displayArray(my2dArray);
 
 
     } // --------------------------------------------- End Main ----------------//
